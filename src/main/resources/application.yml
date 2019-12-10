@@ -1,1 +1,21 @@
-
+logging:
+  level:
+    ROOT: INFO
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/vea_project?createDatabaseIfNotExist=true
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true

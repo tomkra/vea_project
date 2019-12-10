@@ -1,6 +1,10 @@
 package com.vsb.vea.project.dto;
 
 public class Carrier {
-    private long id;
+//    private long id;
     private String name;
+
+    public Carrier(String name) {
+        this.name = name;
+    }
 }
