@@ -1,17 +1,16 @@
 package com.vsb.vea.project.dao.jdbctemplate;
 
-import com.vsb.vea.project.dto.User;
+import com.vsb.vea.project.dto.Person;
 import org.springframework.jdbc.core.RowMapper;
 
-import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserMapper implements RowMapper<User> {
+public class PersonMapper implements RowMapper<Person> {
 
     @Override
-    public User mapRow(ResultSet rs, int i) throws SQLException {
-        User u = new User();
+    public Person mapRow(ResultSet rs, int i) throws SQLException {
+        Person u = new Person();
         u.setId(rs.getLong("id"));
         u.setFirstName(rs.getString("first_name"));
         u.setLastName(rs.getString("last_name"));
