@@ -1,7 +1,6 @@
 package com.vsb.vea.project.dao.jdbctemplate;
 
 import com.vsb.vea.project.dao.VehicleDao;
-import com.vsb.vea.project.dto.Car;
 import com.vsb.vea.project.dto.Person;
 import com.vsb.vea.project.dto.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.util.List;
 
+@Repository
 public class VehicleDaoJdbcTemplate implements VehicleDao {
     private JdbcTemplate jdbcTemplate;
     private SimpleJdbcInsert simpleJdbcInsert;
@@ -35,7 +36,7 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-        save(new Car("Audi", "33456", new Person("Test", "Test", "TTT")));
+        save(new Vehicle("Audi", "33456", new Person("Test", "Test", "ttt")));
     }
 
     public List<Vehicle> getAll() {

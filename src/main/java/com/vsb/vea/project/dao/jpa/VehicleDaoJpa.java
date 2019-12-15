@@ -2,11 +2,15 @@ package com.vsb.vea.project.dao.jpa;
 
 import com.vsb.vea.project.dao.VehicleDao;
 import com.vsb.vea.project.dto.Vehicle;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Transactional
+@Repository
 public class VehicleDaoJpa implements VehicleDao {
     @PersistenceContext
     private EntityManager em;

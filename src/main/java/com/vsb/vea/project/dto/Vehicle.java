@@ -4,9 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @javax.persistence.Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="vehicle_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class Vehicle implements Entity {
+//@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name="vehicle_type", discriminatorType = DiscriminatorType.STRING)
+public class Vehicle implements Entity {
+    private Integer capacity;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,8 +16,6 @@ public abstract class Vehicle implements Entity {
     @NotEmpty
     private String numberplate;
     private String name;
-
-    private Integer capacity;
 
     @OneToOne
 	private Person driver;
@@ -57,8 +57,15 @@ public abstract class Vehicle implements Entity {
     }
 
     public Vehicle(String name, String numberplate, Person driver) {
+        super();
         this.name = name;
+        this.numberplate = numberplate;
         this.driver = driver;
+    }
+
+    public Vehicle(String name, String numberplate) {
+        super();
+        this.name = name;
         this.numberplate = numberplate;
     }
 
