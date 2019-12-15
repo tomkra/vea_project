@@ -4,6 +4,7 @@ logging:
 spring:
   thymeleaf:
     cache: false
+    cacheable: false
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/vea_project?createDatabaseIfNotExist=true

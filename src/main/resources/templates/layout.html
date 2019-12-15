@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Dopravní kniha</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+               <a href="#" class="mr-5"><i class="fas fa-book"></i> VEA2019</a>
+
+               <ul class="navbar-nav mr-auto">
+                   <li class="nav-item">
+                       <a class="nav-link" href="/persons"><i class="fas fa-user"></i> Řidiči</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="/vehicles"><i class="fas fa-truck"></i> Vozidla</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="/routes"><i class="fas fa-map"></i> Jízdy</a>
+                   </li>
+               </ul>
+           </nav>
+    </header>
+
+   <main role="main" class="container mt-2">
+        <section th:replace="${content}">
+            <!-- Page content goes here -->
+        </section>
+    </main>
+    <footer class="footer">
+        <p></p>
+    </footer>
+</body>
+</html>

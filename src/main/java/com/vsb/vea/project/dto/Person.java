@@ -45,11 +45,11 @@ public class Person implements Entity {
         super();
     }
 
-    public Person(String personalNumber, String firstName, String lastName) {
+    public Person(String firstName, String lastName, String personalNumber) {
         super();
-        this.personalNumber = personalNumber;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.personalNumber = personalNumber;
     }
 
 //    public Person(String personalNumber, String firstName, String lastName, Carrier carrier) {
