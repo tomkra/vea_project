@@ -1,12 +1,13 @@
 package com.vsb.vea.project.dao;
 
 import com.vsb.vea.project.dto.Person;
+import com.vsb.vea.project.dto.Vehicle;
 
 import java.util.List;
 
 public interface PersonDao {
-    public List<Person> getAll();
-    public void save(Person person);
-    public void delete(Person person);
-    public Person find(long id);
+    List<Person> getAll();
+    void save(Person person);
+    void delete(Person person);
+    Person find(long id);
 }

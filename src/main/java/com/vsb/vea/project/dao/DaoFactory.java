@@ -1,5 +1,6 @@
 package com.vsb.vea.project.dao;
 
 public interface DaoFactory {
-    public PersonDao getPersonDao();
+    PersonDao getPersonDao();
+    VehicleDao getVehicleDao();
 }

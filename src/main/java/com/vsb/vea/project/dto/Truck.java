@@ -1,10 +1,22 @@
 package com.vsb.vea.project.dto;
 
-public class Truck extends Vehicle {
-    private int loadCapacity;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
 
-    public Truck(Person driver, String numberplate, int loadCapacity) {
-        super(driver, numberplate);
-        this.loadCapacity = loadCapacity;
+@Entity
+@DiscriminatorValue("truck")
+public class Truck extends Vehicle {
+    @NotEmpty
+    private Integer capacity;
+
+    public Truck() {
+        super();
+    }
+
+    public Truck(String name, String numberplate, Person driver, int capacity) {
+        super(name, numberplate, driver);
+        this.capacity = capacity;
     }
 }

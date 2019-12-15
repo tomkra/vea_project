@@ -14,6 +14,9 @@ public class Person implements Entity {
     private String firstName;
     private String lastName;
 
+    @OneToOne(mappedBy = "driver")
+    private Vehicle driverOf;
+
     public String getPersonalNumber() {
         return personalNumber;
     }
@@ -38,9 +41,6 @@ public class Person implements Entity {
         this.lastName = lastName;
     }
 
-//    @ManyToOne
-//    private Carrier carrier;
-
     public Person() {
         super();
     }
@@ -51,11 +51,6 @@ public class Person implements Entity {
         this.lastName = lastName;
         this.personalNumber = personalNumber;
     }
-
-//    public Person(String personalNumber, String firstName, String lastName, Carrier carrier) {
-//        this(personalNumber, firstName, lastName);
-//        this.carrier = carrier;
-//    }
 
     @Override
     public void setId(long id) {
@@ -73,6 +68,5 @@ public class Person implements Entity {
         firstName = u.firstName;
         lastName = u.lastName;
         personalNumber = u.personalNumber;
-//        carrier = u.carrier;
     }
 }
