@@ -41,6 +41,6 @@ public class PersonDaoJpa implements PersonDao {
 
     @Override
     public Person find(long id) {
-        return null;
+        return em.find(Person.class, id);
     }
 }

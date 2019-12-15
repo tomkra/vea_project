@@ -60,7 +60,8 @@ public class PersonDaoJdbcTemplate implements PersonDao {
 
     @Override
     public Person find(long id) {
-        if (id == 0) return null;
+        if (id == 0)
+            return null;
         String query = "SELECT * FROM Person where id = ?";
         List<Person> result = jdbcTemplate.query(query, new PersonMapper(), new Object[] {id});
         return !result.isEmpty() ? result.get(0) : null;

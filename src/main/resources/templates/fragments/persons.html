@@ -6,7 +6,7 @@
         <div class="card-header">
             <h4>Řidiči
                 <div class="float-right">
-                    <a href="/" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Přidat</a>
+                    <a href="/person/new" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Přidat</a>
                 </div>
             </h4>
         </div>
@@ -28,8 +28,8 @@
                         <td th:text="${p.lastName}"></td>
                         <td th:text="${p.personalNumber}"></td>
                         <td>
-                            <a href="/" class=""><i class="fas fa-edit mr-1"></i></a>
-                            <a href="/" class="text-danger"><i class="fas fa-trash"></i></a>
+                            <a th:href="@{/person/edit/{id}(id=${p.id})}" class=""><i class="fas fa-edit mr-1"></i></a>
+                            <a th:href="@{/person/delete/{id}(id=${p.id})}" class="text-danger"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 </tbody>

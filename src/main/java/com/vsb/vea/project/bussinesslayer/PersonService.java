@@ -29,4 +29,8 @@ public class PersonService {
     public Person find(long id) {
         return personDao.find(id);
     }
+
+    public void deletePerson(Person person) {
+        personDao.delete(person);
+    }
 }
