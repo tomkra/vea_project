@@ -1,5 +1,6 @@
 package com.vsb.vea.project.controllers;
 
+import com.vsb.vea.project.bussinesslayer.PersonService;
 import com.vsb.vea.project.bussinesslayer.VehicleService;
 import com.vsb.vea.project.dto.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class VehicleController extends BaseController {
     @Autowired
     private VehicleService vehicleService;
 
+    @Autowired
+    private PersonService personService;
+
     private VehicleController() {
     }
 
@@ -33,6 +37,7 @@ public class VehicleController extends BaseController {
     public String savePerson(@Valid @ModelAttribute Vehicle vehicle, BindingResult bindingResult, Model model, HttpServletResponse response) {
         if(bindingResult.hasErrors()) {
             model.addAttribute("vehicle", vehicle);
+            model.addAttribute("persons", personService.getAllPersons());
             return redirect(model, "vehicle_form");
         }
         vehicleService.saveChanges(vehicle);
@@ -47,13 +52,15 @@ public class VehicleController extends BaseController {
 
     @GetMapping("/vehicle/new")
     public String saveVehicle(Model model) {
-        model.addAttribute("person", new Vehicle());
+        model.addAttribute("vehicle", new Vehicle());
+        model.addAttribute("persons", personService.getAllPersons());
         return redirect(model, "vehicle_form");
     }
 
     @GetMapping("/vehicle/edit/{id}")
     public String editVehicle(@PathVariable long id, Model model) {
         model.addAttribute("vehicle", vehicleService.find(id));
+        model.addAttribute("persons", personService.getAllPersons());
         return redirect(model, "vehicle_form");
     }
 

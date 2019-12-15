@@ -1,5 +1,7 @@
 package com.vsb.vea.project.dto;
 
+import org.thymeleaf.util.StringUtils;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -16,6 +18,9 @@ public class Person implements Entity {
 
     @OneToOne(mappedBy = "driver")
     private Vehicle driverOf;
+
+    @Transient
+    private String fullname;
 
     public String getPersonalNumber() {
         return personalNumber;
@@ -50,6 +55,7 @@ public class Person implements Entity {
         this.firstName = firstName;
         this.lastName = lastName;
         this.personalNumber = personalNumber;
+        setFullname();
     }
 
     @Override
@@ -68,5 +74,14 @@ public class Person implements Entity {
         firstName = u.firstName;
         lastName = u.lastName;
         personalNumber = u.personalNumber;
+    }
+
+    public String getFullname() {
+        setFullname();
+        return fullname;
+    }
+
+    public void setFullname() {
+        fullname = StringUtils.concat(firstName, " ", lastName);
     }
 }
