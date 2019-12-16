@@ -14,8 +14,8 @@ public class RouteMapper implements RowMapper<Route> {
     public Route mapRow(ResultSet rs, int i) throws SQLException {
         Route r = new Route();
         r.setId(rs.getLong("id"));
-        r.setRoutefrom(rs.getString("from"));
-        r.setRouteto(rs.getString("to"));
+        r.setRoutefrom(rs.getString("routefrom"));
+        r.setRouteto(rs.getString("routeto"));
         long driverId = rs.getLong("driver_id");
         if (driverId != 0) {
             Person driver = new Person();

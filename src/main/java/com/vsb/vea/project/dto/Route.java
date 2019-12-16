@@ -66,18 +66,28 @@ public class Route implements Entity {
         this.driver = driver;
     }
 
+    public Route(String from, String to) {
+        super();
+        this.routefrom = from;
+        this.routeto = to;
+    }
+
     @Override
     public void setId(long id) {
-
+        this.id = id;
     }
 
     @Override
     public long getId() {
-        return 0;
+        return id;
     }
 
     @Override
     public void merge(Entity e) {
-
+        Route r = (Route) e;
+        routefrom = r.routefrom;
+        routeto = r.routeto;
+        driver = r.driver;
+        vehicle = r.vehicle;
     }
 }

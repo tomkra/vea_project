@@ -27,8 +27,8 @@
                         <td th:text="${p.id}"></td>
                         <td th:text="${p.routefrom}"></td>
                         <td th:text="${p.routeto}"></td>
-                        <td th:text="${p.driver.fullname}"></td>
-                        <td th:text="${p.vehicle.idname}"></td>
+                        <td th:text="${p.driver?.fullname}"></td>
+                        <td th:text="${p.vehicle?.idname}"></td>
                         <td>
                             <a th:href="@{/route/edit/{id}(id=${p.id})}" class=""><i class="fas fa-edit mr-1"></i></a>
                             <a th:href="@{/route/delete/{id}(id=${p.id})}" class="text-danger"><i class="fas fa-trash"></i></a>
