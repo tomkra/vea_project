@@ -39,7 +39,6 @@ public class RouteDaoJdbcTemplate implements RouteDao {
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-        save(new Route("Praha", "Brno"));
     }
 
     public List<Route> getAll() {

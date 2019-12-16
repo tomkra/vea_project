@@ -1,15 +1,20 @@
 //package com.vsb.vea.project.dto;
 //
-//import javax.persistence.DiscriminatorColumn;
-//import javax.persistence.DiscriminatorValue;
+//import javax.persistence.*;
 //import javax.persistence.Entity;
 //import javax.validation.constraints.NotEmpty;
 //
 //@Entity
-////@DiscriminatorValue("truck")
 //public class Truck extends Vehicle {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
+//
 //    @NotEmpty
 //    private Integer capacity;
+//
+//    @OneToOne
+//	private Person driver;
 //
 //    public Truck() {
 //        super();
