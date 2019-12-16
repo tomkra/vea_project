@@ -20,13 +20,6 @@ public class VehicleMapper implements RowMapper<Vehicle> {
         v.setId(rs.getLong("id"));
         v.setName(rs.getString("name"));
         v.setNumberplate(rs.getString("numberplate"));
-        VehicleType vt;
-        if(rs.getString("vehicletype").equals("CAR")) {
-            vt = VehicleType.CAR;
-        } else {
-            vt = VehicleType.TRUCK;
-        }
-        v.setVehicletype(vt);
         long driverId = rs.getLong("driver_id");
         if (driverId != 0) {
             Person driver = new Person();

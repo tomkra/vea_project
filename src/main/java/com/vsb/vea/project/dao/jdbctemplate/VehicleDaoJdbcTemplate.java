@@ -1,10 +1,7 @@
 package com.vsb.vea.project.dao.jdbctemplate;
 
 import com.vsb.vea.project.dao.VehicleDao;
-import com.vsb.vea.project.dto.Person;
-import com.vsb.vea.project.dto.Truck;
-import com.vsb.vea.project.dto.Vehicle;
-import com.vsb.vea.project.dto.VehicleType;
+import com.vsb.vea.project.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +24,7 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
         simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("Vehicle")
                 .usingGeneratedKeyColumns("id")
-                .usingColumns("name", "numberplate", "capacity");
+                .usingColumns("name", "numberplate", "capacity", "vehicletype");
     }
 
     @PostConstruct
@@ -38,7 +35,8 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-        save(new Truck("Audi", "33456", new Person("Test", "Test", "ttt"), 10));
+        save(new Truck("Tatra", "33456", new Person("Test", "Test", "ttt"), 10));
+        save(new Car("Audi", "OV11"));
     }
 
     public List<Vehicle> getAll() {

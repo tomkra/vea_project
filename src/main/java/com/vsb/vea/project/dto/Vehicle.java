@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @javax.persistence.Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 //@DiscriminatorColumn(name="vehicle_type", discriminatorType = DiscriminatorType.STRING)
 public class Vehicle implements Entity {
     private Integer capacity;
@@ -75,6 +75,7 @@ public class Vehicle implements Entity {
         this.name = name;
         this.numberplate = numberplate;
         this.driver = driver;
+        this.vehicletype = vt;
         setIdName();
     }
 
@@ -101,6 +102,7 @@ public class Vehicle implements Entity {
         Vehicle v = (Vehicle) e;
         numberplate = v.numberplate;
         driver = v.driver;
+        vehicletype = v.vehicletype;
     }
 
     public String getIdname() {

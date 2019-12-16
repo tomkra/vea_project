@@ -1,7 +1,10 @@
 package com.vsb.vea.project.dao.jpa;
 
 import com.vsb.vea.project.dao.VehicleDao;
+import com.vsb.vea.project.dto.Car;
+import com.vsb.vea.project.dto.Truck;
 import com.vsb.vea.project.dto.Vehicle;
+import com.vsb.vea.project.dto.VehicleType;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -22,6 +25,13 @@ public class VehicleDaoJpa implements VehicleDao {
 
     @Override
     public void save(Vehicle vehicle) {
+         if (vehicle instanceof Truck) {
+            vehicle.setVehicletype(VehicleType.TRUCK);
+        }
+        if (vehicle instanceof Car) {
+            vehicle.setVehicletype(VehicleType.CAR);
+        }
+
         if(vehicle.getId() != 0) {
             em.merge(vehicle);
         } else {
