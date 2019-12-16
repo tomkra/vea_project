@@ -28,6 +28,12 @@ public class PersonController extends BaseController {
         return redirect(model, "persons");
     }
 
+    @GetMapping("/")
+    public String persons(Model model) {
+        model.addAttribute("persons", personService.getAllPersons());
+        return redirect(model, "persons");
+    }
+
     @RequestMapping("/person/save")
     public String savePerson(@Valid @ModelAttribute Person person, BindingResult bindingResult, Model model, HttpServletResponse response) {
         if(bindingResult.hasErrors()) {
