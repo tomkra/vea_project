@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -54,11 +55,35 @@ public class RouteController extends BaseController {
     }
 
     @GetMapping("/route/new")
+    public String addRoute(Model model) {
+        model.addAttribute("vehicles", vehicleService.getAllVehicles());
+        model.addAttribute("persons", personService.getAllPersons());
+        model.addAttribute("route", new Route());
+        return redirect(model, "route_form");
+    }
 
 
     @GetMapping("/route/edit/{id}")
+    public String editRoute(@PathVariable long id, Model model) {
+        model.addAttribute("vehicles", vehicleService.getAllVehicles());
+        model.addAttribute("persons", personService.getAllPersons());
+        model.addAttribute("route", routeService.find(id));
+        return redirect(model, "route_form");
+    }
 
     @GetMapping("/route/delete/{id}")
+    public String deleteRoute(@PathVariable long id, Model model, HttpServletResponse response) {
+        routeService.deleteRoute(routeService.find(id));
+        model.addAttribute("vehicles", vehicleService.getAllVehicles());
+        model.addAttribute("persons", personService.getAllPersons());
+        try {
+			response.sendRedirect("/routes");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        return redirect(model, "routes");
+    }
+
 
 
 

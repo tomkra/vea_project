@@ -11,6 +11,6 @@ public interface RouteDao {
     void save(Route route);
     void delete(Route route);
     Route find(long id);
-    Vehicle getVehicle(long vehicle);
-    Person getDriver(long driver);
+    Route getVehicle(long vehicle);
+    Route getDriver(long driver);
 }

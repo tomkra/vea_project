@@ -34,7 +34,7 @@ public class VehicleController extends BaseController {
     }
 
     @RequestMapping("/vehicle/save")
-    public String savePerson(@Valid @ModelAttribute Vehicle vehicle, BindingResult bindingResult, Model model, HttpServletResponse response) {
+    public String saveVehicle(@Valid @ModelAttribute Vehicle vehicle, BindingResult bindingResult, Model model, HttpServletResponse response) {
         if(bindingResult.hasErrors()) {
             model.addAttribute("vehicle", vehicle);
             model.addAttribute("persons", personService.getAllPersons());
@@ -51,7 +51,7 @@ public class VehicleController extends BaseController {
     }
 
     @GetMapping("/vehicle/new")
-    public String saveVehicle(Model model) {
+    public String addVehicle(Model model) {
         model.addAttribute("vehicle", new Vehicle());
         model.addAttribute("persons", personService.getAllPersons());
         return redirect(model, "vehicle_form");

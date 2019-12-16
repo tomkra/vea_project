@@ -20,7 +20,7 @@
                 </div>
 
                 <select id="driver" th:field="*{driver}" class="form-control">
-                    <option value="null">-- Choose driver --</option>
+                    <option value="null">-- Zvolte řidiče --</option>
                     <option th:each="p : ${persons}" th:value="${p.id}" th:text="${p.fullname}"></option>
                 </select>
                 <div class="mt-2"></div>

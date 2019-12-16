@@ -45,7 +45,7 @@ public class PersonController extends BaseController {
     }
 
     @GetMapping("/person/new")
-    public String savePerson(Model model) {
+    public String addPerson(Model model) {
         model.addAttribute("person", new Person());
         return redirect(model, "person_form");
     }

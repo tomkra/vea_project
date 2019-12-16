@@ -13,11 +13,43 @@ public class Route implements Entity {
     private long id;
 
     @NotEmpty
-    private String from;
-    private String to;
+    private String routefrom;
+    private String routeto;
 
     @ManyToOne
     private Vehicle vehicle;
+
+    public String getRoutefrom() {
+        return routefrom;
+    }
+
+    public void setRoutefrom(String from) {
+        this.routefrom = from;
+    }
+
+    public String getRouteto() {
+        return routeto;
+    }
+
+    public void setRouteto(String to) {
+        this.routeto = to;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Person getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Person driver) {
+        this.driver = driver;
+    }
 
     @ManyToOne
     private Person driver;
@@ -28,8 +60,8 @@ public class Route implements Entity {
 
     public Route(String from, String to, Vehicle vehicle, Person driver) {
         super();
-        this.from = from;
-        this.to = to;
+        this.routefrom = from;
+        this.routeto = to;
         this.vehicle = vehicle;
         this.driver = driver;
     }

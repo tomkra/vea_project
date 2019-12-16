@@ -72,7 +72,7 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
     public Vehicle find(long id) {
        if (id == 0)
             return null;
-        String query = "SELECT * FROM Starship WHERE id = ?";
+        String query = "SELECT * FROM Vehicle WHERE id = ?";
         List<Vehicle> result = jdbcTemplate.query(query, new VehicleMapper(),
                 new Object[] {id});
         return !result.isEmpty() ? result.get(0) : null;

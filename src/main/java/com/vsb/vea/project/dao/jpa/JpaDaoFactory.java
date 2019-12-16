@@ -14,6 +14,9 @@ public class JpaDaoFactory implements DaoFactory {
     @Autowired
     private VehicleDaoJpa vehicleDaoJpa;
 
+    @Autowired
+    private RouteDaoJpa routeDaoJpa;
+
     @Override
     public PersonDao getPersonDao() {
         return personDaoJpa;
@@ -22,5 +25,10 @@ public class JpaDaoFactory implements DaoFactory {
     @Override
     public VehicleDao getVehicleDao() {
         return vehicleDaoJpa;
+    }
+
+    @Autowired
+    public RouteDao getRouteDao() {
+        return routeDaoJpa;
     }
 }

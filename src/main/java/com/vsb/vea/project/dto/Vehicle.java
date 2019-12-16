@@ -1,6 +1,9 @@
 package com.vsb.vea.project.dto;
 
+import org.thymeleaf.util.StringUtils;
+
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotEmpty;
 
 @javax.persistence.Entity
@@ -19,6 +22,9 @@ public class Vehicle implements Entity {
 
     @OneToOne
 	private Person driver;
+
+    @Transient
+    private String identifier;
 
     public Vehicle() {
         super();
@@ -61,12 +67,14 @@ public class Vehicle implements Entity {
         this.name = name;
         this.numberplate = numberplate;
         this.driver = driver;
+        setIdentifier();
     }
 
     public Vehicle(String name, String numberplate) {
         super();
         this.name = name;
         this.numberplate = numberplate;
+        setIdentifier();
     }
 
     @Override
@@ -83,5 +91,9 @@ public class Vehicle implements Entity {
     public void merge(Entity e) {
         Vehicle v = (Vehicle) e;
         numberplate = v.numberplate;
+    }
+
+    public void setIdentifier() {
+        identifier = StringUtils.concat(name, " [", numberplate, "]");
     }
 }

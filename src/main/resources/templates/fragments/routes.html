@@ -15,8 +15,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Z</th>
-                        <th>Do</th>
+                        <th>Odkud</th>
+                        <th>Kam</th>
                         <th>Řidič</th>
                         <th>Vozidlo</th>
                     </tr>
@@ -24,8 +24,8 @@
                 <tbody>
                     <tr th:each="p : ${routes}">
                         <td th:text="${p.id}"></td>
-                        <td th:text="${p.from}"></td>
-                        <td th:text="${p.to}"></td>
+                        <td th:text="${p.routefrom}"></td>
+                        <td th:text="${p.routeto}"></td>
                         <td th:text="${p.driver.fullname}"></td>
                         <td th:text="${p.driver.fullname}"></td>
                         <td>
