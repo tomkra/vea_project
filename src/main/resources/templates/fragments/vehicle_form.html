@@ -19,10 +19,23 @@
                     <input id="numberplate" th:field="*{numberplate}" class="form-control">
                 </div>
 
-                <select id="driver" th:field="*{driver}" class="form-control">
-                    <option value="null">-- Zvolte řidiče --</option>
-                    <option th:each="p : ${persons}" th:value="${p.id}" th:text="${p.fullname}"></option>
-                </select>
+                <div class="form-group">
+                    <select id="driver" th:field="*{driver}" class="form-control">
+                        <option value="null">-- Zvolte řidiče --</option>
+                        <option th:each="p : ${persons}" th:value="${p.id}" th:text="${p.fullname}"></option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <select id="vehicletype" th:field="*{vehicletype}" class="form-control">
+                        <option value="null">-- TYP --</option>
+                        <option th:each="v : ${T(com.vsb.vea.project.dto.VehicleType).values()}"
+                            th:value="${v}" th:text="${v.displayValue}"></option>
+                    </select>
+                </div>
+
+
                 <div class="mt-2"></div>
                 <input type="submit" class="btn btn-success" value="Uložit">
                 <a href="/vehicles" class="btn btn-secondary">Storno</a>

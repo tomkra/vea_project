@@ -17,6 +17,7 @@
                         <th>Id</th>
                         <th>Název</th>
                         <th>SPZ</th>
+                        <th>Typ</th>
                         <th>Řidič</th>
                         <th>Akce</th>
                     </tr>
@@ -26,6 +27,7 @@
                         <td th:text="${p.id}"></td>
                         <td th:text="${p.name}"></td>
                         <td th:text="${p.numberplate}"></td>
+                        <td th:text="${p.vehicletype?.displayValue}"></td>
                         <td th:text="${p.driver?.fullname}"></td>
                         <td>
                             <a th:href="@{/vehicle/edit/{id}(id=${p.id})}" class=""><i class="fas fa-edit mr-1"></i></a>
