@@ -2,6 +2,8 @@ package com.vsb.vea.project.bussinesslayer;
 
 import com.vsb.vea.project.dao.DaoFactory;
 import com.vsb.vea.project.dao.PersonDao;
+import com.vsb.vea.project.dao.fakedb.FakeDBDaoFactory;
+import com.vsb.vea.project.dao.fakedb.PersonDaoFakeDB;
 import com.vsb.vea.project.dto.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
