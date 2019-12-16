@@ -18,6 +18,9 @@ public class Vehicle implements Entity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Enumerated(EnumType.STRING)
+    private VehicleType vehicletype;
+
     @NotEmpty
     private String numberplate;
     private String name;
@@ -67,7 +70,7 @@ public class Vehicle implements Entity {
         this.driver = driver;
     }
 
-    public Vehicle(String name, String numberplate, Person driver) {
+    public Vehicle(String name, String numberplate, Person driver, VehicleType vt) {
         super();
         this.name = name;
         this.numberplate = numberplate;
@@ -75,10 +78,11 @@ public class Vehicle implements Entity {
         setIdName();
     }
 
-    public Vehicle(String name, String numberplate) {
+    public Vehicle(String name, String numberplate, VehicleType vt) {
         super();
         this.name = name;
         this.numberplate = numberplate;
+        this.vehicletype = vt;
         setIdName();
     }
 
@@ -106,5 +110,13 @@ public class Vehicle implements Entity {
 
     public void setIdName() {
         idname = StringUtils.concat(name, " [", numberplate, "]");
+    }
+
+    public VehicleType getVehicletype() {
+        return vehicletype;
+    }
+
+    public void setVehicletype(VehicleType vehicletype) {
+        this.vehicletype = vehicletype;
     }
 }

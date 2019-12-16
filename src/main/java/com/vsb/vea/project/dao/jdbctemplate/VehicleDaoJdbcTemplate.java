@@ -2,7 +2,9 @@ package com.vsb.vea.project.dao.jdbctemplate;
 
 import com.vsb.vea.project.dao.VehicleDao;
 import com.vsb.vea.project.dto.Person;
+import com.vsb.vea.project.dto.Truck;
 import com.vsb.vea.project.dto.Vehicle;
+import com.vsb.vea.project.dto.VehicleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -36,7 +38,7 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
-        save(new Vehicle("Audi", "33456", new Person("Test", "Test", "ttt")));
+        save(new Truck("Audi", "33456", new Person("Test", "Test", "ttt"), 10));
     }
 
     public List<Vehicle> getAll() {
@@ -50,13 +52,14 @@ public class VehicleDaoJdbcTemplate implements VehicleDao {
             simpleJdbcInsert.executeAndReturnKey(source);
         } else {
             String query = "UPDATE Vehicle " +
-                    "SET name = ?, numberplate = ?, driver_id = ?, capacity = ? " +
+                    "SET name = ?, numberplate = ?, driver_id = ?, capacity = ? vehicletype = ? " +
                     "WHERE id = ?";
             jdbcTemplate.update(query,
                     vehicle.getName(),
                     vehicle.getNumberplate(),
                     vehicle.getDriver() != null ? vehicle.getDriver().getId() : null,
                     vehicle.getCapacity(),
+                    vehicle.getVehicletype(),
                     vehicle.getId());
         }
     }
