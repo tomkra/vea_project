@@ -87,6 +87,6 @@ public class Person implements Entity {
     }
 
     public void setFullname() {
-        fullname = StringUtils.concat(firstName, " ", lastName);
+        fullname = StringUtils.concat(firstName, " ", lastName, " [", personalNumber, "]");
     }
 }

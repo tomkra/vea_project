@@ -5,6 +5,8 @@ import org.thymeleaf.util.StringUtils;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @javax.persistence.Entity
 //@Inheritance(strategy = InheritanceType.JOINED)
@@ -23,8 +25,11 @@ public class Vehicle implements Entity {
     @OneToOne
 	private Person driver;
 
+    @OneToMany(mappedBy = "vehicle")
+	private List<Route> madeRoutes = new ArrayList<>();
+
     @Transient
-    private String identifier;
+    private String idname;
 
     public Vehicle() {
         super();
@@ -67,14 +72,14 @@ public class Vehicle implements Entity {
         this.name = name;
         this.numberplate = numberplate;
         this.driver = driver;
-        setIdentifier();
+        setIdName();
     }
 
     public Vehicle(String name, String numberplate) {
         super();
         this.name = name;
         this.numberplate = numberplate;
-        setIdentifier();
+        setIdName();
     }
 
     @Override
@@ -93,7 +98,12 @@ public class Vehicle implements Entity {
         numberplate = v.numberplate;
     }
 
-    public void setIdentifier() {
-        identifier = StringUtils.concat(name, " [", numberplate, "]");
+    public String getIdname() {
+        setIdName();
+        return idname;
+    }
+
+    public void setIdName() {
+        idname = StringUtils.concat(name, " [", numberplate, "]");
     }
 }

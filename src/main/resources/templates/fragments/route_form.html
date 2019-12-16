@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <select id="vehicle" th:field="*{vehicle}" class="form-control">
                         <option value="null">-- Zvolte vozidlo --</option>
-                        <option th:each="v : ${vehicles}" th:value="${v.id}" th:text="${v.identifier}"></option>
+                        <option th:each="v : ${vehicles}" th:value="${v.id}" th:text="${v.idname}"></option>
                     </select>
                 </div>
 
