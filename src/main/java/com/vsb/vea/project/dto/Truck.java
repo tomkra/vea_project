@@ -16,4 +16,9 @@ public class Truck extends Vehicle {
         super(name, numberplate, driver, VehicleType.TRUCK);
         this.capacity = capacity;
     }
+
+    public Truck(String name, String numberplate, int capacity) {
+        super(name, numberplate, VehicleType.TRUCK);
+        this.capacity = capacity;
+    }
 }
