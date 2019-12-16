@@ -1,0 +1,41 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<section>
+    <div class="card">
+        <div class="card-header">
+            <h4>Jízdy
+                <div class="float-right">
+                    <a href="/route/new" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Přidat</a>
+                </div>
+            </h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Z</th>
+                        <th>Do</th>
+                        <th>Řidič</th>
+                        <th>Vozidlo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p : ${routes}">
+                        <td th:text="${p.id}"></td>
+                        <td th:text="${p.from}"></td>
+                        <td th:text="${p.to}"></td>
+                        <td th:text="${p.driver.fullname}"></td>
+                        <td th:text="${p.driver.fullname}"></td>
+                        <td>
+                            <a th:href="@{/route/edit/{id}(id=${p.id})}" class=""><i class="fas fa-edit mr-1"></i></a>
+                            <a th:href="@{/route/delete/{id}(id=${p.id})}" class="text-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</html>

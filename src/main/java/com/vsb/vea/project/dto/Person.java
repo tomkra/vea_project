@@ -4,6 +4,8 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @javax.persistence.Entity
 public class Person implements Entity {
@@ -21,6 +23,9 @@ public class Person implements Entity {
 
     @Transient
     private String fullname;
+
+    @OneToMany(mappedBy = "driver")
+	private List<Route> madeRoutes = new ArrayList<>();
 
     public String getPersonalNumber() {
         return personalNumber;
